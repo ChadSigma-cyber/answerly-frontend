@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "react-image-crop/dist/ReactCrop.css";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Infinite moving grid background */
+.modern-texture-bg {
+  background-color: #0a0a0a;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(at 20% 80%, hsla(160,50%,30%,0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 10%, hsla(240,40%,20%,0.1) 0px, transparent 50%);
+  background-size: 4rem 4rem, 4rem 4rem, auto, auto;
+  animation: gridMove 20s linear infinite;
+}
+
+/* Grid animation */
+@keyframes gridMove {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      center,
+      center;
+  }
+  100% {
+    background-position:
+      200px 200px,
+      200px 200px,
+      center,
+      center;
+  }
+}
+
+html,
+body {
+  background-color: #000;
+}
