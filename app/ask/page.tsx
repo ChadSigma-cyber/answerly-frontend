@@ -174,8 +174,8 @@ export default function AskPage() {
         </Link>
 
         <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg">
-          <span className="text-5xl">∞</span>
-          <span className="text-xl">Answerly</span>
+          <span className="text-3xl md:text-5xl">∞</span>
+          <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
 
@@ -270,13 +270,13 @@ export default function AskPage() {
           </label>
 
           {/* Text Input */}
-          <div className="relative w-full md:w-[640px] mt-1 md:mt-0">
+          <div className="relative w-full md:w-[640px] -mt-8 md:mt-0">
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
               type="text"
               placeholder="Or type your question here..."
-              className="w-full h-[72px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
+              className="w-full h-[54px] md:h-[72px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
               
             />
             
@@ -327,7 +327,7 @@ export default function AskPage() {
            <button
               onClick={handleImageSend}
               disabled={!image || loading}
-              className={`relative mt-1 w-full max-w-none mx-auto translate-x-0
+              className={`relative -mt-4 w-full max-w-none mx-auto translate-x-0
                 md:mt-4 md:ml-auto md:left-25 md:w-[400px] 
                 h-[64px] md:h-[70px] rounded-full 
                 bg-emerald-500 text-black text-2xl font-semibold font-sans
