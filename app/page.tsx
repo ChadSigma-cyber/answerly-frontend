@@ -21,16 +21,16 @@ export default function Home() {
 
       {/* Main */}
       <main className="flex-grow flex items-center justify-center text-center px-4">
-        <div className="space-y-8 max-w-4xl">
-          <h1 className="text-3xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+        <div className="space-y-6 md:space-y-8 max-w-4xl">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white leading-tight mt-[-60px] md:mt-0">
             Unlock Your Academic Potential With AI
           </h1>
 
-          <p className="text-base md:text-xl text-gray-400 max-w-xl md:max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-gray-400 max-w-xl md:max-w-2xl mx-auto mt-15 md:mt-0">
             Instant answers, personalized learning for Gen Z. Study smarter, not harder.
           </p>
 
-          <div className="pt-6">
+          <div className="pt-16 md:pt-6 px-6 md:px-12">
             <Link href="/ask">
             <button className="
               group relative
