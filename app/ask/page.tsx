@@ -163,11 +163,11 @@ export default function AskPage() {
     <div className="page-transition relative min-h-screen modern-texture-bg text-gray-200 flex flex-col overflow-hidden">
 
       {/* Header */}
-      <header className="relative flex items-center justify-center py-8">
+      <header className="relative flex items-center justify-center pt-4 pb-8 md:py-8">
         <Link href="/">
         <button
           
-          className="absolute left-6 flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition text-sm"
+          className="absolute left-4 top-4 md:left-6 md:top-auto flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm mt-2 md:mt-0"
         >
           ← Back
         </button>
@@ -180,16 +180,16 @@ export default function AskPage() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex flex-col items-center justify-center px-6 -mt-20">
+      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center md:-mt-20">
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-20">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-10 md:mb-20 text-center">
           What&apos;s Your Question?
         </h1>
 
         <div className="w-full max-w-6xl flex flex-col md:flex-row gap-16 items-center justify-center">
 
           {/* Upload Box */}
-          <label className="w-full md:w-[520px] h-[320px] rounded-[2rem] border border-white/40 bg-black/30 flex items-center justify-center cursor-pointer hover:bg-white/5 transition overflow-hidden">
+          <label className="w-full h-[260px] md:w-[520px] md:h-[320px] rounded-[2rem] border border-white/40 bg-black/30 flex items-center justify-center cursor-pointer hover:bg-white/5 transition overflow-hidden mt-2 md:mt-0">
 
             {image ? (
               <div className="relative w-full h-full pointer-events-none">
@@ -270,7 +270,7 @@ export default function AskPage() {
           </label>
 
           {/* Text Input */}
-          <div className="relative w-full md:w-[640px]">
+          <div className="relative w-full md:w-[640px] mt-1 md:mt-0">
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -327,7 +327,9 @@ export default function AskPage() {
            <button
               onClick={handleImageSend}
               disabled={!image || loading}
-              className={`relative left-25 mt-4 ml-auto w-[400px] h-[70px] rounded-full 
+              className={`relative mt-1 w-full max-w-none mx-auto translate-x-0
+                md:mt-4 md:ml-auto md:left-25 md:w-[400px] 
+                h-[64px] md:h-[70px] rounded-full 
                 bg-emerald-500 text-black text-2xl font-semibold font-sans
                 shadow-[0_10px_10px_rgba(16,185,129,0.3)] 
                 transition-all duration-300 ease-out
