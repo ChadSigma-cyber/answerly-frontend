@@ -57,26 +57,43 @@ export default function AnswerPage() {
     <div className="relative min-h-screen modern-texture-bg text-gray-200 flex flex-col overflow-hidden">
 
       {/* Header */}
-      <header className="relative flex items-center justify-center py-8">
+      <header className="relative flex items-center justify-center pt-4 pb-8 md:py-8">
         <button
           onClick={() => router.back()}
-          className="absolute left-6 flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition text-sm"
+          className="absolute left-4 top-4 md:left-6 md:top-auto flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm mt-2 md:mt-0"
         >
           ← Back
         </button>
 
         <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg">
-          <span className="text-5xl">∞</span>
-          <span className="text-xl">Answerly</span>
+          <span className="text-3xl md:text-5xl">∞</span>
+          <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
+      <div className="md:hidden fixed bottom-25 left-0 right-0 px-4 z-50">
+        <button
+          onClick={() => router.push("/ask")}
+          className="
+            w-80 max-w-md mx-auto
+            h-[56px]
+            rounded-full
+            bg-emerald-500 text-black
+            text-lg font-semibold
+            shadow-[0_6px_20px_rgba(16,185,129,0.45)]
+            flex items-center justify-center
+          "
+        >
+          Ask Another Question →
+        </button>
+      </div>
 
       {/* Main */}
       <main className="flex-grow flex items-center justify-center px-6">
-        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 -mt-25">
 
           {/* Answer */}
          <div className="relative w-full rounded-[28px] p-[2px]
+            order-2 md:order-1
             bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md">
 
             <div
@@ -85,8 +102,9 @@ export default function AnswerPage() {
                 backdrop-black-md
                 border border-white/15
                 p-8
-                min-h-[520px]
-                max-h-[520px]
+                min-h-[380px] md:min-h-[520px]
+                max-h-[400px] md:max-h-[520px]
+                w-90 md:w-full
                 overflow-y-auto
                 scroll-smooth
                 scrollbar-thin
@@ -118,7 +136,7 @@ export default function AnswerPage() {
 
             {/* Fixed Copy Button */}
             {!loading && answerText && (
-              <div className="absolute bottom-114 right-25 flex flex-col items-center">
+              <div className="absolute bottom-82 right-22 md:bottom-114 md:right-25 flex flex-col items-center">
                 <button
                   onClick={() => navigator.clipboard.writeText(answerText)}
                   className="p-1 text-white hover:text-green-400 transition-colors"
@@ -147,27 +165,25 @@ export default function AnswerPage() {
 
 
           {/* Question + CTA */}
-          <div className="flex flex-col justify-center items-center gap-10">
+          <div className="flex flex-col justify-center items-center gap-10 order-1 md:order-2">
 
             <div className="
               bg-gradient-to-br from-black/25 via-black/25 to-black/25
-              w-100
-              h-90
+              w-80 md:w-100
+              min-h-[230px] md:h-90
               rounded-[2rem]
-              p-8
-              text-white
-              bg-transparent
+              p-4 md:p-8
               border border-white/20
               
             ">
-              <h2 className="text-2xl font-bold mb-4 text-center text-white">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 text-center text-white">
                 Your Question
               </h2>
               <div className="-mt-1 border-t border-white/40 pt-2">
                 <div className="
                   
-                  p-2
-                  text-base
+                  p-1 md:p-2
+                  text-sm md:text-base
                   text-white
                   whitespace-pre-wrap
                 ">
@@ -186,20 +202,21 @@ export default function AnswerPage() {
                 </>
               )}
             </div>
-
-            <button
-              onClick={() => router.push("/ask")}
-              className="group relative inline-flex items-center justify-center
-                h-[64px] px-14 rounded-full
-                bg-emerald-500 text-black
-                text-xl font-bold
-                shadow-[0_4px_12px_rgba(16,185,129,0.35),0_0_0_1px_rgba(16,185,129,0.6)]
-                hover:shadow-[0_8px_20px_rgba(16,185,129,0.45)]
-                transition-all duration-300
-                transform hover:-translate-y-1"
-            >
-              Ask Another Question →
-            </button>
+            <div className="order-3 md:order-none mt-6 md:mt-0 hidden md:block">
+              <button
+                onClick={() => router.push("/ask")}
+                className="group relative inline-flex items-center justify-center
+                  h-[64px] px-14 rounded-full
+                  bg-emerald-500 text-black
+                  text-xl font-bold
+                  shadow-[0_4px_12px_rgba(16,185,129,0.35),0_0_0_1px_rgba(16,185,129,0.6)]
+                  hover:shadow-[0_8px_20px_rgba(16,185,129,0.45)]
+                  transition-all duration-300
+                  transform hover:-translate-y-1"
+              >
+                Ask Another Question →
+              </button>
+            </div>
 
           </div>
 
