@@ -98,12 +98,13 @@ export default function AnswerPage() {
 
             <div
               className="
+                relative
                 rounded-[26px]
                 backdrop-black-md
                 border border-white/15
                 p-8
                 min-h-[320px] md:min-h-[520px]
-                max-h-[330px] md:max-h-[520px]
+                max-h-[320px] md:max-h-[520px]
                 w-80 md:w-full
                 overflow-y-auto
                 scroll-smooth
@@ -120,8 +121,8 @@ export default function AnswerPage() {
               {loading ? (
                 <p className="text-white/50 animate-pulse">Generating answer...</p>
               ) : (
-                <div className="mt-6 border-t border-white/40 pt-2">
-                  <p className="text-white whitespace-pre-wrap leading-relaxed mt-3">
+                <div className="-mt-1 border-t border-white/40 pt-2">
+                  <p className="text-white whitespace-pre-wrap leading-relaxed mt-2">
                     {answerText}
                   </p>
                 </div>
@@ -132,34 +133,35 @@ export default function AnswerPage() {
                   No answer received.
                 </p>
               )}
+              {/* Fixed Copy Button */}
+              {!loading && answerText && (
+                <div className="absolute bottom-62 right-17 md:bottom-112 md:right-25 flex flex-col items-center">
+                  <button
+                    onClick={() => navigator.clipboard.writeText(answerText)}
+                    className="p-1 text-white hover:text-green-400 transition-colors"
+                    title="Copy to clipboard"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 md:h-5 w-4 md:w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <rect x="5" y="5" width="14" height="18" rx="1" ry="1" fill="currentColor" fillOpacity="0.2" />
+                      <rect x="2" y="2" width="14" height="18" rx="1" ry="1" fill="none" />
+                    </svg>
+                  </button>
+                  <span className="text-white/30 text-xs select-none">
+                    Copy
+                  </span>
+                </div>
+              )}
+             
             </div>
 
-            {/* Fixed Copy Button */}
-            {!loading && answerText && (
-              <div className="absolute bottom-70 right-22 md:bottom-112 md:right-25 flex flex-col items-center">
-                <button
-                  onClick={() => navigator.clipboard.writeText(answerText)}
-                  className="p-1 text-white hover:text-green-400 transition-colors"
-                  title="Copy to clipboard"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 md:h-5 w-4 md:w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <rect x="5" y="5" width="14" height="18" rx="1" ry="1" fill="currentColor" fillOpacity="0.2" />
-                    <rect x="2" y="2" width="14" height="18" rx="1" ry="1" fill="none" />
-                  </svg>
-                </button>
-                <span className="text-white/60 text-xs select-none">
-                  Copy
-                </span>
-              </div>
-            )}
-             
+            
 
           </div>
 
@@ -168,12 +170,18 @@ export default function AnswerPage() {
           <div className="flex flex-col justify-center items-center gap-10 order-1 md:order-2">
 
             <div className="
+              relative
               bg-gradient-to-br from-black/25 via-black/25 to-black/25
               w-70 md:w-100
               min-h-[180px] md:h-90
               rounded-[2rem]
               p-4 md:p-8
               border border-white/20
+              overflow-y-auto
+              scroll-smooth
+              scrollbar-thin
+              scrollbar-thumb-white/20
+              scrollbar-track-transparent
               
             ">
               <h2 className="text-xl md:text-2xl font-bold mb-4 text-center text-white">

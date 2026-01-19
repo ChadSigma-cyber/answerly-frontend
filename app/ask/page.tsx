@@ -299,7 +299,7 @@ export default function AskPage() {
                 router.push(`/answer?question=${encodeURIComponent(text)}`);
               }}
               className={`absolute right-2 md:right-3 top-1/2 -translate-y-11.5 md:-translate-y-17
-                w-11 h-11 md:w-12 md:h-12 
+                w-11 h-11 md:w-12 md:h-12 -mt-7
                 rounded-full flex items-center justify-center transition
                 ${listening ? "bg-red-500 animate-pulse" : "bg-emerald-500 hover:bg-emerald-400"}
               `}
@@ -329,7 +329,7 @@ export default function AskPage() {
            <button
               onClick={handleImageSend}
               disabled={!image || loading}
-              className={`relative -mt-4 w-full max-w-none mx-auto translate-x-0
+              className={`relative mt-10 w-full max-w-none mx-auto translate-x-0
                 md:mt-4 md:ml-auto md:left-25 md:w-[400px] 
                 h-[64px] md:h-[70px] rounded-full 
                 bg-emerald-500 text-black text-2xl font-semibold font-sans

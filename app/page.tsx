@@ -10,9 +10,9 @@ export default function Home() {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-10 p-4 md:p-8">
         <div className="container mx-auto flex justify-center md:justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <span className="text-3xl md:text-3xl text-emerald-500">∞</span>
-            <span className="text-xl md:text-2xl font-bold text-emerald-500">Answerly</span>
+          <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lgspace-x-2">
+            <span className="text-3xl md:text-5xl">∞</span>
+            <span className="text-base md:text-xl">Answerly</span>
           </div>
 
          
