@@ -70,7 +70,7 @@ export default function AnswerPage() {
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
-      <div className="md:hidden fixed bottom-25 left-0 right-0 px-4 z-50">
+      <div className="md:hidden fixed bottom-20 left-0 right-0 px-4 z-50">
         <button
           onClick={() => router.push("/ask")}
           className="
