@@ -89,12 +89,12 @@ export default function AnswerPage() {
 
       {/* Main */}
       <main className="flex-grow flex items-center justify-center px-6">
-        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 -mt-25">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 -mt-30">
 
           {/* Answer */}
          <div className="relative w-full rounded-[28px] p-[2px]
             order-2 md:order-1
-            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md">
+            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-3">
 
             <div
               className="
@@ -102,9 +102,9 @@ export default function AnswerPage() {
                 backdrop-black-md
                 border border-white/15
                 p-8
-                min-h-[380px] md:min-h-[520px]
-                max-h-[400px] md:max-h-[520px]
-                w-90 md:w-full
+                min-h-[320px] md:min-h-[520px]
+                max-h-[350px] md:max-h-[520px]
+                w-80 md:w-full
                 overflow-y-auto
                 scroll-smooth
                 scrollbar-thin
@@ -136,7 +136,7 @@ export default function AnswerPage() {
 
             {/* Fixed Copy Button */}
             {!loading && answerText && (
-              <div className="absolute bottom-82 right-22 md:bottom-114 md:right-25 flex flex-col items-center">
+              <div className="absolute bottom-70 right-22 md:bottom-112 md:right-25 flex flex-col items-center">
                 <button
                   onClick={() => navigator.clipboard.writeText(answerText)}
                   className="p-1 text-white hover:text-green-400 transition-colors"
@@ -144,7 +144,7 @@ export default function AnswerPage() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-4 md:h-5 w-4 md:w-5"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -169,8 +169,8 @@ export default function AnswerPage() {
 
             <div className="
               bg-gradient-to-br from-black/25 via-black/25 to-black/25
-              w-80 md:w-100
-              min-h-[230px] md:h-90
+              w-70 md:w-100
+              min-h-[180px] md:h-90
               rounded-[2rem]
               p-4 md:p-8
               border border-white/20
