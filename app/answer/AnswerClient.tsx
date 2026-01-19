@@ -65,8 +65,8 @@ export default function AnswerPage() {
           ← Back
         </button>
 
-        <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg">
-          <span className="text-3xl md:text-5xl">∞</span>
+        <div className="flex items-center gap-1 text-emerald-500 font-semibold text-lg mt-2">
+          <span className="text-2xl md:text-5xl">∞</span>
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
@@ -89,7 +89,7 @@ export default function AnswerPage() {
 
       {/* Main */}
       <main className="flex-grow flex items-center justify-center px-6">
-        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-3 -mt-30">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-3 -mt-46 md:-mt-2">
 
           {/* Answer */}
          <div className="relative w-full rounded-[28px] p-[2px]
@@ -173,15 +173,12 @@ export default function AnswerPage() {
               relative
               bg-gradient-to-br from-black/25 via-black/25 to-black/25
               w-70 md:w-100
-              min-h-[180px] md:h-90
+              h-[180px] md:h-90
               rounded-[2rem]
               p-4 md:p-8
               border border-white/20
               overflow-y-auto
-              scroll-smooth
-              scrollbar-thin
-              scrollbar-thumb-white/20
-              scrollbar-track-transparent
+              
               
             ">
               <h2 className="text-xl md:text-2xl font-bold mb-4 text-center text-white">
@@ -203,7 +200,7 @@ export default function AnswerPage() {
                   <div className="-mt-5 border-t border-white/40 pt-2">
                     
 
-                    <div className="text-sm text-white/80 whitespace-pre-wrap max-h-40 overflow-y-auto mt-2">
+                    <div className="text-sm text-white/80 whitespace-pre-wrap max-h-40  mt-2">
                       {extractedText}
                     </div>
                   </div>

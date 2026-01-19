@@ -173,8 +173,8 @@ export default function AskPage() {
         </button>
         </Link>
 
-        <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg">
-          <span className="text-3xl md:text-5xl">∞</span>
+        <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg mt-2">
+          <span className="text-2xl md:text-5xl">∞</span>
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
