@@ -103,7 +103,7 @@ export default function AnswerPage() {
                 border border-white/15
                 p-8
                 min-h-[320px] md:min-h-[520px]
-                max-h-[350px] md:max-h-[520px]
+                max-h-[330px] md:max-h-[520px]
                 w-80 md:w-full
                 overflow-y-auto
                 scroll-smooth
