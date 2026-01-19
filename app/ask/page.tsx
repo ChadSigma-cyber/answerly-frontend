@@ -299,7 +299,7 @@ export default function AskPage() {
                 router.push(`/answer?question=${encodeURIComponent(text)}`);
               }}
               className={`absolute right-2 md:right-3 top-1/2 -translate-y-11.5 md:-translate-y-17
-                w-11 h-11 md:w-12 md:h-12 -mt-7
+                w-11 h-11 md:w-12 md:h-12 -mt-7 md:mt-0
                 rounded-full flex items-center justify-center transition
                 ${listening ? "bg-red-500 animate-pulse" : "bg-emerald-500 hover:bg-emerald-400"}
               `}

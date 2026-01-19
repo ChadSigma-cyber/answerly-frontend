@@ -89,7 +89,7 @@ export default function AnswerPage() {
 
       {/* Main */}
       <main className="flex-grow flex items-center justify-center px-6">
-        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 -mt-30">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-3 -mt-30">
 
           {/* Answer */}
          <div className="relative w-full rounded-[28px] p-[2px]
