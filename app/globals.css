@@ -39,17 +39,17 @@ html,
 body {
   background-color: #000;
 }
-@keyframes fade-in {
+@keyframes toast-in {
   from {
     opacity: 0;
-    transform: translate(-50%, 10px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, 0);
+    transform: translateY(0);
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.25s ease-out;
+.animate-toast-in {
+  animation: toast-in 0.25s ease-out;
 }

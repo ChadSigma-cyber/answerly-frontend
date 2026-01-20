@@ -58,12 +58,33 @@ export default function AnswerPage() {
 
       {/* Header */}
       <header className="relative flex items-center justify-center pt-4 pb-8 md:py-8">
+        
         <button
           onClick={() => router.back()}
-          className="absolute left-4 top-4 md:left-6 md:top-auto flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm mt-2 md:mt-0"
+          className="
+            absolute left-4 top-6 md:left-6 md:top-auto
+            flex items-center gap-0
+            px-3 py-2
+            rounded-full
+            bg-white/10 hover:bg-white/20
+            transition
+            text-sm
+            font-semibold
+          "
         >
-          ← Back
+          <svg
+            className="w-4 h-4 stroke-white"
+            viewBox="0 0 24 24"
+            fill="none"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+          <span>Back</span>
         </button>
+      
 
         <div className="flex items-center gap-1 text-emerald-500 font-semibold text-lg mt-2">
           <span className="text-2xl md:text-5xl">∞</span>
@@ -94,7 +115,7 @@ export default function AnswerPage() {
           {/* Answer */}
          <div className="relative w-80 md:w-150 rounded-[28px] p-[2px]
             order-2 md:order-1
-            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-3">
+            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-2">
 
             <div
               className="
@@ -239,7 +260,8 @@ export default function AnswerPage() {
         <div className="
           fixed
           bottom-24 md:bottom-10
-          left-1/2 -translate-x-1/2
+          left-1/2 
+          -translate-x-1/2
           z-[9999]
           px-5 py-3
           rounded-full
@@ -247,7 +269,7 @@ export default function AnswerPage() {
           border border-white/20
           text-white text-sm
           shadow-lg
-          animate-fade-in
+          animate-toast-in
         ">
           Copied to clipboard ✅
         </div>

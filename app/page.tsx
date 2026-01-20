@@ -48,8 +48,19 @@ export default function Home() {
             ">
               <span className="flex items-center space-x-1">
                 <span>Type or Snap Your Question</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
+                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="M13 5l7 7-7 7" />
+                  </svg>
                 </span>
               </span>
             </button>

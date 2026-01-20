@@ -165,12 +165,30 @@ export default function AskPage() {
       {/* Header */}
       <header className="relative flex items-center justify-center pt-4 pb-8 md:py-8">
         <Link href="/">
-        <button
-          
-          className="absolute left-4 top-4 md:left-6 md:top-auto flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm mt-2 md:mt-0"
-        >
-          ← Back
-        </button>
+          <button
+            className="
+              absolute left-4 top-6 md:left-6 md:top-auto
+              flex items-center gap-0
+              px-3 py-2
+              rounded-full
+              bg-white/10 hover:bg-white/20
+              transition
+              text-sm
+              font-semibold
+            "
+          >
+            <svg
+              className="w-4 h-4 stroke-white"
+              viewBox="0 0 24 24"
+              fill="none"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+            <span>Back</span>
+          </button>
         </Link>
 
         <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg mt-2">
@@ -180,7 +198,7 @@ export default function AskPage() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center -mt-5 md:-mt-40">
+      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center -mt-2 md:-mt-40">
 
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-10 md:mb-20 text-center">
           What&apos;s Your Question?
@@ -329,8 +347,8 @@ export default function AskPage() {
            <button
               onClick={handleImageSend}
               disabled={!image || loading}
-              className={`relative top-10 mt-10 w-80 md:w-100 max-w-none mx-auto translate-x-0
-                md:mt-4 md:ml-auto left-5 md:left-25 md:w-[400px] 
+              className={`relative top-2 mt-10 w-80 md:w-100 max-w-none mx-auto translate-x-0
+                md:mt-4 md:ml-auto left-3 md:left-25 md:w-[400px] 
                 h-[64px] md:h-[70px] rounded-full 
                 bg-emerald-500 text-black text-2xl font-semibold font-sans
                 shadow-[0_10px_10px_rgba(16,185,129,0.3)] 
