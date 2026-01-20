@@ -180,7 +180,7 @@ export default function AskPage() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center md:-mt-20">
+      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center -mt-5 md:-mt-20">
 
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-10 md:mb-20 text-center">
           What&apos;s Your Question?
@@ -357,7 +357,7 @@ export default function AskPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-6 text-center text-sm text-gray-400">
+      <footer className="py-6 text-center text-sm text-gray-400 mb-40 md:mb-0">
         Powered by <span className="text-emerald-500 font-medium">AI</span>
       </footer>
 

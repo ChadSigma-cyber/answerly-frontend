@@ -12,7 +12,7 @@ export default function AnswerPage() {
   const answer = searchParams.get("answer"); // future API
   const [loading, setLoading] = useState(true);
   const [answerText, setAnswerText] = useState("");
-
+  const [showToast, setShowToast] = useState(false);
   useEffect(() => {
 
     if (answer) {
@@ -137,7 +137,14 @@ export default function AnswerPage() {
               {!loading && answerText && (
                 <div className="absolute bottom-66 right-17 md:bottom-112 md:right-25 flex flex-col items-center">
                   <button
-                    onClick={() => navigator.clipboard.writeText(answerText)}
+                    onClick={() =>{
+
+
+                     navigator.clipboard.writeText(answerText)
+                      setShowToast(true);
+                      setTimeout(() => setShowToast(false), 1500);
+                    
+                    }}
                     className="p-1 text-white hover:text-green-400 transition-colors"
                     title="Copy to clipboard"
                   >
@@ -227,8 +234,26 @@ export default function AnswerPage() {
 
         </div>
       </main>
+      {/* Copy Toast */}
+      {showToast && (
+        <div className="
+          fixed
+          bottom-24 md:bottom-10
+          left-1/2 -translate-x-1/2
+          z-[9999]
+          px-5 py-3
+          rounded-full
+          bg-black/80 backdrop-blur-md
+          border border-white/20
+          text-white text-sm
+          shadow-lg
+          animate-fade-in
+        ">
+          Copied to clipboard ✅
+        </div>
+      )}
 
-      <footer className="py-6 text-center text-sm text-gray-400">
+      <footer className="py-6 text-center text-sm text-gray-400 mb-40 md:mb-0">
         Powered by <span className="text-emerald-500 font-medium">AI</span>
       </footer>
 
