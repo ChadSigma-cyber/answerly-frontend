@@ -253,7 +253,7 @@ export default function AnswerPage() {
         </div>
       )}
 
-      <footer className="py-6 text-center text-sm text-gray-400 mb-10">
+      <footer className="py-6 text-center text-[10px] md:text-[12px] text-gray-400 mb-10 md:mb-0">
         Powered by <span className="text-emerald-500 font-medium">AI</span>
       </footer>
 
