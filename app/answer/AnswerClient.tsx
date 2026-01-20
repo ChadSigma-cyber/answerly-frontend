@@ -70,7 +70,7 @@ export default function AnswerPage() {
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
-      <div className="md:hidden fixed bottom-20 left-0 right-0 px-4 z-50">
+      <div className="md:hidden fixed bottom-18 left-0 right-0 px-4 z-50">
         <button
           onClick={() => router.push("/ask")}
           className="
@@ -113,7 +113,7 @@ export default function AnswerPage() {
                 scrollbar-track-transparent
               "
             >
-              <h2 className="text-xl font-semibold text-white mb-4">
+              <h2 className="text-l md:text-xl font-semibold text-white mb-4 -mt-3 md:mt-0">
                 Your Answer
               </h2>
 
@@ -135,7 +135,7 @@ export default function AnswerPage() {
               )}
               {/* Fixed Copy Button */}
               {!loading && answerText && (
-                <div className="absolute bottom-62 right-17 md:bottom-112 md:right-25 flex flex-col items-center">
+                <div className="absolute bottom-66 right-17 md:bottom-112 md:right-25 flex flex-col items-center">
                   <button
                     onClick={() => navigator.clipboard.writeText(answerText)}
                     className="p-1 text-white hover:text-green-400 transition-colors"
@@ -143,7 +143,7 @@ export default function AnswerPage() {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 md:h-5 w-4 md:w-5"
+                      className="h-3 md:h-5 w-4 md:w-5"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -153,7 +153,7 @@ export default function AnswerPage() {
                       <rect x="2" y="2" width="14" height="18" rx="1" ry="1" fill="none" />
                     </svg>
                   </button>
-                  <span className="text-white/30 text-xs select-none">
+                  <span className="text-white/30 text-[10px] md-[20px] select-none">
                     Copy
                   </span>
                 </div>
@@ -181,7 +181,7 @@ export default function AnswerPage() {
               
               
             ">
-              <h2 className="text-xl md:text-2xl font-bold mb-4 text-center text-white">
+              <h2 className="text-l md:text-xl md:text-2xl font-bold mb-4 text-center text-white">
                 Your Question
               </h2>
               <div className="-mt-1 border-t border-white/40 pt-2">

@@ -10,8 +10,8 @@ export default function Home() {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-10 p-4 md:p-8">
         <div className="container mx-auto flex justify-center md:justify-between items-center">
-          <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lgspace-x-2">
-            <span className="text-3xl md:text-5xl">∞</span>
+          <div className="flex items-center gap-2 text-emerald-500 font-semibold text-lg mt-2">
+            <span className="text-2xl md:text-5xl">∞</span>
             <span className="text-base md:text-xl">Answerly</span>
           </div>
 
@@ -20,7 +20,7 @@ export default function Home() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex items-center justify-center text-center px-4">
+      <main className="flex-grow flex items-center justify-center text-center px-4 mt-8 md:mt-0">
         <div className="space-y-6 md:space-y-8 max-w-4xl">
           <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white leading-tight mt-[-60px] md:mt-0">
             Unlock Your Academic Potential With AI
@@ -30,7 +30,7 @@ export default function Home() {
             Instant answers, personalized learning for Gen Z. Study smarter, not harder.
           </p>
 
-          <div className="pt-16 md:pt-6 px-6 md:px-12">
+          <div className="pt-16 md:pt-6 px-6 md:px-12 mt-15 md:mt-0">
             <Link href="/ask">
             <button className="
               group relative
@@ -46,7 +46,7 @@ export default function Home() {
               transition-all duration-300
               transform hover:-translate-y-1
             ">
-              <span className="flex items-center space-x-3">
+              <span className="flex items-center space-x-1">
                 <span>Type or Snap Your Question</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
