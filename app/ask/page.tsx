@@ -180,7 +180,7 @@ export default function AskPage() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center -mt-5 md:-mt-20">
+      <main className="flex-grow flex flex-col items-center justify-start px-6 pt-6 md:justify-center -mt-5 md:-mt-40">
 
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-10 md:mb-20 text-center">
           What&apos;s Your Question?
@@ -329,8 +329,8 @@ export default function AskPage() {
            <button
               onClick={handleImageSend}
               disabled={!image || loading}
-              className={`relative mt-10 w-full max-w-none mx-auto translate-x-0
-                md:mt-4 md:ml-auto md:left-25 md:w-[400px] 
+              className={`relative top-10 mt-10 w-80 md:w-100 max-w-none mx-auto translate-x-0
+                md:mt-4 md:ml-auto left-5 md:left-25 md:w-[400px] 
                 h-[64px] md:h-[70px] rounded-full 
                 bg-emerald-500 text-black text-2xl font-semibold font-sans
                 shadow-[0_10px_10px_rgba(16,185,129,0.3)] 

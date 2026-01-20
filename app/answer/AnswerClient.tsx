@@ -92,7 +92,7 @@ export default function AnswerPage() {
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-3 -mt-30 md:-mt-2">
 
           {/* Answer */}
-         <div className="relative w-full rounded-[28px] p-[2px]
+         <div className="relative w-80 md:w-150 rounded-[28px] p-[2px]
             order-2 md:order-1
             bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-3">
 
@@ -103,8 +103,8 @@ export default function AnswerPage() {
                 backdrop-black-md
                 border border-white/15
                 p-8
-                min-h-[320px] md:min-h-[520px]
-                max-h-[320px] md:max-h-[520px]
+                min-h-[320px] md:min-h-[550px]
+                max-h-[320px] md:max-h-[550px]
                 w-80 md:w-full
                 overflow-y-auto
                 scroll-smooth
@@ -121,7 +121,7 @@ export default function AnswerPage() {
               {loading ? (
                 <p className="text-white/50 animate-pulse">Generating answer...</p>
               ) : (
-                <div className="-mt-1 border-t border-white/40 pt-2">
+                <div className="-mt-1 md:mt-2 border-t border-white/40 pt-2">
                   <p className="text-white whitespace-pre-wrap leading-relaxed mt-2">
                     {answerText}
                   </p>
@@ -135,7 +135,7 @@ export default function AnswerPage() {
               )}
               {/* Fixed Copy Button */}
               {!loading && answerText && (
-                <div className="absolute bottom-66 right-17 md:bottom-112 md:right-25 flex flex-col items-center">
+                <div className="absolute bottom-66 right-17 md:bottom-120 md:right-25 flex flex-col items-center">
                   <button
                     onClick={() =>{
 
@@ -207,7 +207,7 @@ export default function AnswerPage() {
                   <div className="-mt-5 border-t border-white/40 pt-2">
                     
 
-                    <div className="text-sm text-white/80 whitespace-pre-wrap max-h-40  mt-2">
+                    <div className="text-[10px] md:text-sm text-white/80 whitespace-pre-wrap max-h-40  mt-2">
                       {extractedText}
                     </div>
                   </div>
