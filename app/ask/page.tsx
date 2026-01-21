@@ -207,7 +207,7 @@ export default function AskPage() {
         <div className="w-full max-w-6xl flex flex-col md:flex-row gap-16 items-center justify-center">
 
           {/* Upload Box */}
-          <label className="w-full h-[260px] md:w-[520px] md:h-[320px] rounded-[2rem] border border-white/40 bg-black/30 flex items-center justify-center cursor-pointer hover:bg-white/5 transition overflow-hidden mt-2 md:mt-0">
+          <label className="w-[300] h-[240px] md:w-[520px] md:h-[320px] rounded-[2rem] border border-white/40 bg-black/30 flex items-center justify-center cursor-pointer hover:bg-white/5 transition overflow-hidden mt-2 md:mt-0">
 
             {image ? (
               <div className="relative w-full h-full pointer-events-none">
@@ -288,13 +288,13 @@ export default function AskPage() {
           </label>
 
           {/* Text Input */}
-          <div className="relative w-full md:w-[640px] -mt-8 md:mt-0">
+          <div className="relative w-[340px] md:w-[640px] -mt-8 md:mt-0">
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
               type="text"
               placeholder="Or type your question here..."
-              className="w-full h-[54px] md:h-[72px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
+              className="w-full h-[48px] md:h-[72px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
               
             />
             
@@ -317,7 +317,7 @@ export default function AskPage() {
                 router.push(`/answer?question=${encodeURIComponent(text)}`);
               }}
               className={`absolute right-2 md:right-3 top-1/2 -translate-y-11.5 md:-translate-y-17
-                w-11 h-11 md:w-12 md:h-12 -mt-7 md:mt-0
+                w-11 h-11 md:w-12 md:h-12 -mt-6.5 md:mt-0
                 rounded-full flex items-center justify-center transition
                 ${listening ? "bg-red-500 animate-pulse" : "bg-emerald-500 hover:bg-emerald-400"}
               `}
@@ -347,9 +347,10 @@ export default function AskPage() {
            <button
               onClick={handleImageSend}
               disabled={!image || loading}
-              className={`relative top-2 mt-10 w-80 md:w-100 max-w-none mx-auto translate-x-0
-                md:mt-4 md:ml-auto left-3 md:left-25 md:w-[400px] 
-                h-[64px] md:h-[70px] rounded-full 
+              className={`relative top-2 md:top-7 mt-10 w-70 md:w-100 max-w-none mx-auto translate-x-0
+                md:mt-4 md:ml-auto left-7 md:left-25 md:w-[400px] 
+                h-[58px] md:h-[70px] rounded-full 
+                text-[20px] md:text-[25px]
                 bg-emerald-500 text-black text-2xl font-semibold font-sans
                 shadow-[0_10px_10px_rgba(16,185,129,0.3)] 
                 transition-all duration-300 ease-out

@@ -143,7 +143,7 @@ export default function AnswerPage() {
                 <p className="text-white/50 animate-pulse">Generating answer...</p>
               ) : (
                 <div className="-mt-1 md:mt-2 border-t border-white/40 pt-2">
-                  <p className="text-white whitespace-pre-wrap leading-relaxed mt-2">
+                  <p className="text-white whitespace-pre-wrap leading-relaxed mt-2 text-[15px] md:text-[17px]">
                     {answerText}
                   </p>
                 </div>
