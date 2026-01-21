@@ -91,21 +91,38 @@ export default function AnswerPage() {
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
-      <div className="md:hidden fixed bottom-18 left-0 right-0 px-4 z-50">
+      <div className="md:hidden fixed bottom-18 left-4 right-0 px-4 z-50">
         <button
-          onClick={() => router.push("/ask")}
-          className="
-            w-80 max-w-md mx-auto
-            h-[56px]
-            rounded-full
-            bg-emerald-500 text-black
-            text-lg font-semibold
-            shadow-[0_6px_20px_rgba(16,185,129,0.45)]
-            flex items-center justify-center
-          "
-        >
-          Ask Another Question →
-        </button>
+                onClick={() => router.push("/ask")}
+                className="
+                  group relative inline-flex items-center justify-center gap-2
+                  h-[64px] px-14 rounded-full
+                  bg-emerald-500 text-black
+                  font-bold
+                  text-lg md:text-xl
+                  shadow-[0_4px_12px_rgba(16,185,129,0.35),0_0_0_1px_rgba(16,185,129,0.6)]
+                  hover:shadow-[0_8px_20px_rgba(16,185,129,0.45)]
+                  transition-all duration-300
+                  transform hover:-translate-y-1
+                "
+              >
+                <span>Ask Another Question</span>
+
+                <span className="transition-transform duration-300 group-hover:translate-x-1 text-superbold">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="M13 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </button>
       </div>
 
       {/* Main */}
@@ -238,16 +255,34 @@ export default function AnswerPage() {
             <div className="order-3 md:order-none mt-6 md:mt-0 hidden md:block">
               <button
                 onClick={() => router.push("/ask")}
-                className="group relative inline-flex items-center justify-center
+                className="
+                  group relative inline-flex items-center justify-center gap-2
                   h-[64px] px-14 rounded-full
                   bg-emerald-500 text-black
-                  text-xl font-bold
+                  font-bold
+                  text-lg md:text-xl
                   shadow-[0_4px_12px_rgba(16,185,129,0.35),0_0_0_1px_rgba(16,185,129,0.6)]
                   hover:shadow-[0_8px_20px_rgba(16,185,129,0.45)]
                   transition-all duration-300
-                  transform hover:-translate-y-1"
+                  transform hover:-translate-y-1
+                "
               >
-                Ask Another Question →
+                <span>Ask Another Question</span>
+
+                <span className="transition-transform duration-300 group-hover:translate-x-1 text-superbold">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="M13 5l7 7-7 7" />
+                  </svg>
+                </span>
               </button>
             </div>
 
