@@ -294,7 +294,7 @@ export default function AskPage() {
               onChange={(e) => setText(e.target.value)}
               type="text"
               placeholder="Or type your question here..."
-              className="w-full h-[48px] md:h-[72px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
+              className="w-full h-[48px] md:h-[65px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
               
             />
             
@@ -317,7 +317,7 @@ export default function AskPage() {
                 router.push(`/answer?question=${encodeURIComponent(text)}`);
               }}
               className={`absolute right-2 md:right-3 top-1/2 -translate-y-11.5 md:-translate-y-17
-                w-11 h-11 md:w-12 md:h-12 -mt-6.5 md:mt-0
+                w-10 h-10 md:w-12 md:h-12 -mt-6 md:mt-0
                 rounded-full flex items-center justify-center transition
                 ${listening ? "bg-red-500 animate-pulse" : "bg-emerald-500 hover:bg-emerald-400"}
               `}
