@@ -167,7 +167,7 @@ export default function AskPage() {
         <Link href="/">
           <button
             className="
-              absolute left-4 top-6 md:left-6 md:top-auto
+              absolute left-4 top-6 md:left-6 md:top-11
               flex items-center gap-0
               px-3 py-2
               rounded-full
