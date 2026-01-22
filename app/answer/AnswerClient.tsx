@@ -91,7 +91,7 @@ export default function AnswerPage() {
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
-      <div className="md:hidden fixed bottom-18 left-4 right-0 px-4 z-50">
+      <div className="md:hidden fixed bottom-18  left-6 px-4 z-50">
         <button
                 onClick={() => router.push("/ask")}
                 className="
@@ -132,7 +132,7 @@ export default function AnswerPage() {
           {/* Answer */}
          <div className="relative w-80 md:w-150 rounded-[28px] p-[2px]
             order-2 md:order-1
-            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-2">
+            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-4">
 
             <div
               className="
@@ -252,7 +252,7 @@ export default function AnswerPage() {
                 </>
               )}
             </div>
-            <div className="order-3 md:order-none mt-6 md:mt-0 hidden md:block">
+            <div className="order-3 md:order-none mt-6 md:mt-0 hidden md:block left-2">
               <button
                 onClick={() => router.push("/ask")}
                 className="
