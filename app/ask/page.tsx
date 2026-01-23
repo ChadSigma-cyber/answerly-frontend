@@ -15,6 +15,7 @@ export default function AskPage() {
   const [cropOpen, setCropOpen] = useState(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [loading, setLoading] = useState(false);
+ 
   const handleSend = async () => {
     if (!text.trim()) return;
 
@@ -51,7 +52,11 @@ export default function AskPage() {
   const router = useRouter();
   const [image, setImage] = useState<string | null>(null);
   
+  const hasImage = !!image;
+  
   const [text, setText] = useState("");
+  const hasText = text.trim().length > 0;
+  const [extractedText, setExtractedText] = useState("");
   const handleImageSend = async () => {
     if (loading) return;
     if (!image) {
@@ -78,10 +83,20 @@ export default function AskPage() {
 
       const data = await res.json();
 
-      // ✅ NOW navigation will happen
+      const ocrText = data.extractedText || "";
+
+      // ✅ build final prompt properly
+      const finalPrompt = text.trim()
+        ? `${ocrText}\n\n${text}`
+        : ocrText;
+
+      // ✅ navigate to answer page
       router.push(
-        `/answer?answer=${encodeURIComponent(data.answer)}&extracted=${encodeURIComponent(data.extractedText)}`
+        `/answer?question=${encodeURIComponent(finalPrompt)}`
       );
+
+      // ✅ NOW navigation will happen
+     
     } catch (err) {
       console.error(err);
       alert("Image processing failed");
@@ -300,21 +315,29 @@ export default function AskPage() {
             
             <button
               onClick={() => {
+                // 🔴 if image exists → mic only
+                if (hasImage) {
+                  handleMicClick();
+                  return;
+                }
+
+                // 🔴 stop mic if listening
                 if (listening) {
-                  // 🔴 STOP MIC (highest priority)
                   window.stopListening?.();
                   setListening(false);
                   return;
                 }
 
-                if (!text.trim()) {
-                  // 🎤 START MIC (only if no text & not listening)
+                // 🎤 start mic (no image, no text)
+                if (!hasText) {
                   handleMicClick();
                   return;
                 }
 
-                // ➡️ SEND (text present & mic stopped)
-                router.push(`/answer?question=${encodeURIComponent(text)}`);
+                // ➡️ text-only send
+                router.push(
+                  `/answer?question=${encodeURIComponent(text)}`
+                );
               }}
               className={`absolute right-2 md:right-3 top-1/2 -translate-y-11.5 md:-translate-y-17
                 w-9 h-9 md:w-12 md:h-12 -mt-5.5 md:mt-0
@@ -322,7 +345,7 @@ export default function AskPage() {
                 ${listening ? "bg-red-500 animate-pulse" : "bg-emerald-500 hover:bg-emerald-400"}
               `}
             >
-              {(listening || text.length === 0) ? (
+              {(listening || !hasText || hasImage)? (
                 /* MIC ICON */
                 <svg
                   className="w-7 h-7 text-black"
