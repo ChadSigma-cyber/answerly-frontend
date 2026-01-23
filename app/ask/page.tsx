@@ -14,6 +14,7 @@ export default function AskPage() {
   const [rawImage, setRawImage] = useState<string | null>(null);
   const [cropOpen, setCropOpen] = useState(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const [showMicHint, setShowMicHint] = useState(false);
   const [loading, setLoading] = useState(false);
  
   const handleSend = async () => {
@@ -145,21 +146,20 @@ export default function AskPage() {
     if (!listening) {
       const ok = window.startListening(
         (spokenText) => {
-          setText(spokenText); // LIVE text update
+          setText(spokenText);
         },
         (status) => {
-          setListening(status === "listening");
+          const isListening = status === "listening";
+          setListening(isListening);
+
+          if (isListening) {
+            setShowMicHint(true);   // ✅ SHOW POPUP
+          }
         },
         (err) => {
           console.warn("Speech error:", err);
-
-          // Safari & Chrome often throw "network" on mic stop
-          if (err === "network" || err?.includes?.("network")) {
-            return; // ignore harmless error
-          }
-
-          alert("Mic error. Please allow microphone access.");
           setListening(false);
+          setShowMicHint(false);    // ✅ HIDE POPUP
         }
       );
 
@@ -167,6 +167,7 @@ export default function AskPage() {
     } else {
       window.stopListening?.();
       setListening(false);
+      setShowMicHint(false);        // ✅ HIDE POPUP
     }
   };
 
@@ -392,7 +393,26 @@ export default function AskPage() {
                 "Get Your Answer"
               )}
             </button>
-            
+            {/* Mic hint popup (DESKTOP ONLY) */}
+            {showMicHint && listening && (
+              <div
+                className="
+                  hidden md:block
+                  absolute
+                  -top-12 right-4
+                  bg-black/80 backdrop-blur
+                  text-white text-sm
+                  px-4 py-2
+                  rounded-lg
+                  shadow-lg
+                  animate-fade-in
+                  pointer-events-none
+                  z-50
+                "
+              >
+                Tap again to stop mic
+              </div>
+            )}
           </div>
 
         </div>
