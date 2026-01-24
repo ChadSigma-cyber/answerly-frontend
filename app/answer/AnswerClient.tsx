@@ -4,6 +4,13 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import PageTransition from "../components/PageTransition";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 export default function AnswerPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -13,6 +20,7 @@ export default function AnswerPage() {
   const [loading, setLoading] = useState(true);
   const [answerText, setAnswerText] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const trackedRef = useRef(false);
   useEffect(() => {
 
     if (answer) {
@@ -51,6 +59,15 @@ export default function AnswerPage() {
 
     fetchAnswer();
   }, [question]);
+  useEffect(() => {
+    if (!loading && answerText && !trackedRef.current && window.gtag) {
+      window.gtag("event", "answer_generated", {
+        question_length: question?.length || 0,
+      });
+
+      trackedRef.current = true; // prevent double count
+    }
+  }, [loading, answerText]);
 
   return (
     <PageTransition>
