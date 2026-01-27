@@ -27,8 +27,8 @@ export default function AskPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          text: text,
-          extractedText: extractedText, // 👈 ADD THIS
+          text,
+          extractedText, // 👈 ADD THIS
         }),
       });
 
