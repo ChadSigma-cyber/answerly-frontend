@@ -149,7 +149,7 @@ export default function AnswerPage() {
           {/* Answer */}
          <div className="relative w-80 md:w-150 rounded-[28px] p-[2px]
             order-2 md:order-1
-            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-6 md:left-3">
+            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-5.5 md:left-3">
 
             <div
               className="
