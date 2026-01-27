@@ -147,9 +147,9 @@ export default function AnswerPage() {
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-3 -mt-30 md:-mt-2">
 
           {/* Answer */}
-         <div className="relative w-11/13 max-w-md md:max-w-2xl rounded-[28px] p-[2px]
+         <div className="relative w-80 md:w-150 rounded-[28px] p-[2px]
             order-2 md:order-1
-            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md mx-auto">
+            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-6 md:left-3">
 
             <div
               className="
@@ -234,13 +234,13 @@ export default function AnswerPage() {
             <div className="
               relative
               bg-gradient-to-br from-black/25 via-black/25 to-black/25
-              w-9/12 max-w-md md:max-w-lg
+              w-70 md:w-100
               h-[180px] md:h-90
               rounded-[2rem]
               p-4 md:p-8
               border border-white/20
               overflow-y-auto
-              mx-auto
+              
               
             ">
               <h2 className="text-l md:text-xl md:text-2xl font-bold mb-4 text-center text-white">
@@ -269,7 +269,7 @@ export default function AnswerPage() {
                 </>
               )}
             </div>
-            <div className="order-3 md:order-none mt-6 md:mt-0 hidden md:block flex justify-center">
+            <div className="order-3 md:order-none mt-6 md:mt-0 hidden md:block left-2">
               <button
                 onClick={() => router.push("/ask")}
                 className="
