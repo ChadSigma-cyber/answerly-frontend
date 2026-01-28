@@ -317,6 +317,10 @@ export default function AskPage() {
               
             />
             
+            <p className="text-[10px] text-white/40 mt-2 ml-10 md:ml-40">
+              Your input may be stored and used to improve Answerly.
+            </p>
+            
             <button
               onClick={() => {
                 // 🔴 if image exists → mic only
@@ -344,7 +348,7 @@ export default function AskPage() {
                 );
               }}
               className={`absolute right-2 md:right-3 top-1/2 -translate-y-11.5 md:-translate-y-17
-                w-9 h-9 md:w-12 md:h-12 -mt-5.5 md:mt-0
+                w-9 h-9 md:w-12 md:h-12 -mt-8 md:-mt-2.5
                 rounded-full flex items-center justify-center transition
                 ${listening ? "bg-red-500 animate-pulse" : "bg-emerald-500 hover:bg-emerald-400"}
               `}

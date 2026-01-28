@@ -108,12 +108,14 @@ export default function AnswerPage() {
           <span className="text-base md:text-xl">Answerly</span>
         </div>
       </header>
-      <div className="md:hidden fixed bottom-18  left-8 px-4 z-50">
+      <div className="md:hidden fixed bottom-18 left-1/2 -translate-x-1/2 z-50">
         <button
                 onClick={() => router.push("/ask")}
                 className="
                   group relative inline-flex items-center justify-center gap-2
-                  h-[64px] px-14 rounded-full
+                  h-[64px] 
+                  w-[80vw] md:w-auto
+                  rounded-full
                   bg-emerald-500 text-black
                   font-bold
                   text-lg md:text-xl
@@ -147,9 +149,7 @@ export default function AnswerPage() {
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-3 -mt-30 md:-mt-2">
 
           {/* Answer */}
-         <div className="relative w-80 md:w-150 rounded-[28px] p-[2px]
-            order-2 md:order-1
-            bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md left-5.5 md:left-3">
+         <div className="relative w-80 md:w-150 mx-auto md:mx-0 left-0 md:left-3 order-2 md:order-1  bg-gradient-to-br from-black/25 via-black/25 to-black/25 backdrop-black-md">
 
             <div
               className="
