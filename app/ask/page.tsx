@@ -452,7 +452,15 @@ export default function AskPage() {
           {/* Controls */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
             <button
-              onClick={() => setCropOpen(false)}
+              onClick={() => {
+                setCropOpen(false);
+                setRawImage(null);
+                setCompletedCrop(null);
+
+                if (fileInputRef.current) {
+                  fileInputRef.current.value = ""; // 🔥 critical
+                }
+              }}
               className="px-6 py-2 rounded-full bg-white/10 text-white"
             >
               Cancel
