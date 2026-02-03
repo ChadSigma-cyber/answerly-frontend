@@ -185,7 +185,7 @@ export default function AnswerPage() {
 
               {!loading && !answerText && (
                 <p className="text-white/40">
-                  No answer received.
+                  No answer received ,network error please try again.
                 </p>
               )}
               {/* Fixed Copy Button */}
