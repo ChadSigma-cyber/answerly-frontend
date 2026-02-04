@@ -21,44 +21,69 @@ export default function AnswerPage() {
   const [answerText, setAnswerText] = useState("");
   const [showToast, setShowToast] = useState(false);
   const trackedRef = useRef(false);
+  const hasFetchedRef = useRef(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [error, setError] = useState(false);
   useEffect(() => {
+    if (!question) return;
+
+    trackedRef.current = false;
 
     if (answer) {
       setAnswerText(answer);
       setLoading(false);
       return;
     }
-    if (!question) return;
+
+    const controller = new AbortController();
 
     const fetchAnswer = async () => {
       try {
         setLoading(true);
-
-        const res = await fetch("https://answerly-backend-nbk9.onrender.com/api/ask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text: question }),
-        });
-
-        const data = await res.json();
-
-        if (!res.ok || !data.success) {
-          throw new Error("Server error");
-        }
-
-        setAnswerText(data.answer); // ✅ THIS WAS THE MISSING LINK
-      } catch (err) {
-        console.error(err);
+        setError(false);
+        setHasStarted(false);
         setAnswerText("");
+
+        const res = await fetch(
+          "https://answerly-backend-nbk9.onrender.com/api/ask",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: question }),
+            signal: controller.signal,
+          }
+        );
+
+        if (!res.ok || !res.body) throw new Error("Network error");
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value);
+          setHasStarted(true);
+          setAnswerText((prev) => prev + chunk);
+        }
+      } catch (err: any) {
+        if (err.name !== "AbortError") {
+          console.error(err);
+          setError(true);
+        }
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
     };
-
     fetchAnswer();
-  }, [question]);
+
+    return () => {
+      controller.abort(); // 👈 kill duplicate call
+    };
+  }, [question, answer]);
   useEffect(() => {
     if (!loading && answerText && !trackedRef.current && window.gtag) {
       window.gtag("event", "answer_generated", {
@@ -173,19 +198,29 @@ export default function AnswerPage() {
               </h2>
 
               {/* Loading */}
-              {loading ? (
-                <p className="text-white/50 animate-pulse">Generating answer...</p>
-              ) : (
+              {!error && !hasStarted && (
+                <p className="text-white/50 animate-pulse">
+                  Generating answer<span className="animate-bounce">...</span>
+                </p>
+              )}
+
+              {/* Streaming / Final Answer */}
+              {answerText && (
                 <div className="-mt-1 md:mt-2 border-t border-white/40 pt-2">
                   <p className="text-white whitespace-pre-wrap leading-relaxed mt-2 text-[15px] md:text-[17px]">
                     {answerText}
+                    {loading && !error && (
+                      <span className="inline-block w-2 ml-1 animate-pulse text-emerald-400">
+                        ●
+                      </span>
+                    )}
                   </p>
                 </div>
               )}
 
-              {!loading && !answerText && (
+              {error && (
                 <p className="text-white/40">
-                  No answer received ,network error please try again.
+                  Network error, please try again.
                 </p>
               )}
               {/* Fixed Copy Button */}
