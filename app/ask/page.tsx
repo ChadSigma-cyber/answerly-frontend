@@ -449,7 +449,7 @@ export default function AskPage() {
           </div>
 
           {/* CONTROLS (ALWAYS STUCK TO BOTTOM) */}
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
+          <div className="absolute bottom-25 md:bottom-4 left-0 right-0 flex justify-center gap-4">
             <button
               onClick={() => {
                 setCropOpen(false);
