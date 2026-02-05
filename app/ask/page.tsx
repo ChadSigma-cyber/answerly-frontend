@@ -423,33 +423,39 @@ export default function AskPage() {
     </div>
     {cropOpen && rawImage && (
       <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
-        <div className="relative w-[90vw] h-[80vh] bg-black rounded-2xl overflow-hidden">
+        
+        {/* MAIN MODAL */}
+        <div className="relative w-[95vw] h-[95vh] bg-black rounded-2xl overflow-hidden">
 
-          {/* Cropper */}
-          <ReactCrop
-            crop={crop}
-            onChange={(c) => setCrop(c)}
-            onComplete={(c) => setCompletedCrop(c)}
-          >
-            <img
-              ref={imgRef}
-              src={rawImage}
-              alt="Crop"
-              className="max-h-[70vh] max-w-full"
-            />
-          </ReactCrop>
+          {/* CROP AREA */}
+          <div className="absolute top-4 left-0 right-0 bottom-24 overflow-auto flex justify-center items-start">
+            <ReactCrop
+              crop={crop}
+              onChange={(c) => setCrop(c)}
+              onComplete={(c) => setCompletedCrop(c)}
+            >
+              <img
+                ref={imgRef}
+                src={rawImage}
+                alt="Crop"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+            </ReactCrop>
+          </div>
 
-          {/* Controls */}
+          {/* CONTROLS (ALWAYS STUCK TO BOTTOM) */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
             <button
               onClick={() => {
                 setCropOpen(false);
                 setRawImage(null);
                 setCompletedCrop(null);
-
-                if (fileInputRef.current) {
-                  fileInputRef.current.value = ""; // 🔥 critical
-                }
+                if (fileInputRef.current) fileInputRef.current.value = "";
               }}
               className="px-6 py-2 rounded-full bg-white/10 text-white"
             >
