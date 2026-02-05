@@ -62,14 +62,11 @@ export default function AskPage() {
   const hasText = text.trim().length > 0;
   const [extractedText, setExtractedText] = useState("");
   const handleImageSend = async () => {
-    if (loading) return;
-    if (!image) {
-      alert("Please crop the image first");
-      return;
-    }
+    if (!image) return;
 
     try {
       setLoading(true);
+
       const base64Only = image.split(",")[1];
 
       const res = await fetch("https://answerly-backend-nbk9.onrender.com/api/ask-image", {
@@ -78,32 +75,25 @@ export default function AskPage() {
         body: JSON.stringify({ imageBase64: base64Only }),
       });
 
-      if (!res.ok) {
-        const errText = await res.text();
-        console.error("Server error:", errText);
-        alert("Image processing failed");
-        return;
-      }
+      if (!res.ok) throw new Error("OCR failed");
 
       const data = await res.json();
 
       const ocrText = data.extractedText || "";
 
-      // ✅ build final prompt properly
+      // 🔥 Build final question
       const finalPrompt = text.trim()
         ? `${ocrText}\n\n${text}`
         : ocrText;
 
-      // ✅ navigate to answer page
+      // 🔥 Go to streaming answer page
       router.push(
         `/answer?question=${encodeURIComponent(finalPrompt)}`
       );
 
-      // ✅ NOW navigation will happen
-     
     } catch (err) {
       console.error(err);
-      alert("Image processing failed");
+      alert("Image failed");
     } finally {
       setLoading(false);
     }
