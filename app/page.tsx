@@ -27,7 +27,7 @@ export default function Home() {
           </h1>
 
           <p className="text-base md:text-xl text-gray-400 max-w-xl md:max-w-2xl mx-auto mt-15 md:mt-0">
-            Instant answers, personalized learning for Gen Z. Study smarter, not harder.
+            Instant answers, personalized learning for students. Study smarter, not harder.
           </p>
 
           <div className="pt-16 md:pt-6 px-6 md:px-12 mt-15 md:mt-0">
