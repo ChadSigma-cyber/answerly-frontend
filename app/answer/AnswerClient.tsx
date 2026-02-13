@@ -215,7 +215,8 @@ export default function AnswerPage() {
 
               {/* Streaming / Final Answer */}
               {answerText && (
-                <div className="-mt-1 md:mt-2 border-t border-white/40 pt-2">
+                <div className="-mt-1 md:mt-2 border-t border-white/20 pt-2 ">
+                  
                   <div className="text-white leading-relaxed mt-2 text-[15px] md:text-[17px] whitespace-pre-wrap">
                     <ReactMarkdown
                       remarkPlugins={[remarkMath]}
@@ -239,12 +240,12 @@ export default function AnswerPage() {
               )}
               {/* Fixed Copy Button */}
               {!loading && answerText && (
-                <div className="absolute bottom-66 right-17 md:bottom-120 md:right-25 flex flex-col items-center">
+                <div className="absolute bottom-66 right-17 md:bottom-118.5 md:right-25 flex flex-col items-center">
                   <button
                     onClick={() =>{
 
 
-                     navigator.clipboard.writeText(answerText)
+                     navigator.clipboard.writeText(formattedAnswer)
                       setShowToast(true);
                       setTimeout(() => setShowToast(false), 1500);
                     
@@ -295,7 +296,7 @@ export default function AnswerPage() {
               <h2 className="text-l md:text-xl md:text-2xl font-bold mb-4 text-center text-white">
                 Your Question
               </h2>
-              <div className="-mt-1 border-t border-white/40 pt-2">
+              <div className="-mt-1 border-t border-white/20 pt-2">
                 <div className="
                   
                   p-1 md:p-2
