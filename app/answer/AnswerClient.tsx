@@ -4,6 +4,9 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import PageTransition from "../components/PageTransition";
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { useRef } from "react";
 
 declare global {
@@ -207,17 +210,22 @@ export default function AnswerPage() {
               {/* Streaming / Final Answer */}
               {answerText && (
                 <div className="-mt-1 md:mt-2 border-t border-white/40 pt-2">
-                  <p className="text-white whitespace-pre-wrap leading-relaxed mt-2 text-[15px] md:text-[17px]">
-                    {answerText}
-                    {loading && !error && (
-                      <span className="inline-block w-2 ml-1 animate-pulse text-emerald-400">
-                        ●
-                      </span>
-                    )}
-                  </p>
+                  <div className="text-white leading-relaxed mt-2 text-[15px] md:text-[17px] whitespace-pre-wrap">
+                    <ReactMarkdown
+                      remarkPlugins={[remarkMath]}
+                      rehypePlugins={[rehypeKatex]}
+                    >
+                      {answerText}
+                    </ReactMarkdown>
+                  </div>
+
+                  {loading && !error && (
+                    <span className="inline-block w-2 ml-1 animate-pulse text-emerald-400">
+                      ●
+                    </span>
+                  )}
                 </div>
               )}
-
               {error && (
                 <p className="text-white/40">
                   Network error, please try again.

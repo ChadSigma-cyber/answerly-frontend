@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import "katex/dist/katex.min.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {

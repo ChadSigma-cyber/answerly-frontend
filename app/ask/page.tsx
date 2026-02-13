@@ -301,6 +301,14 @@ export default function AskPage() {
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  if (!image) {   // 👈 only if no image
+                    router.push(`/answer?question=${encodeURIComponent(text)}`);
+                  }
+                }
+              }}
               type="text"
               placeholder="Or type your question here..."
               className="w-full h-[48px] md:h-[65px] rounded-full bg-black/40 border border-white/30 pl-8 pr-20 text-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 transition"
