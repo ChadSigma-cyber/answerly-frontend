@@ -97,6 +97,12 @@ export default function AnswerPage() {
     }
   }, [loading, answerText]);
 
+  const formattedAnswer = answerText
+    .replace(/\\\(/g, "$")
+    .replace(/\\\)/g, "$")
+    .replace(/\\\[/g, "$$")
+    .replace(/\\\]/g, "$$");
+
   return (
     <PageTransition>
     <div className="relative min-h-screen modern-texture-bg text-gray-200 flex flex-col overflow-hidden">
@@ -215,7 +221,7 @@ export default function AnswerPage() {
                       remarkPlugins={[remarkMath]}
                       rehypePlugins={[rehypeKatex]}
                     >
-                      {answerText}
+                      {formattedAnswer}
                     </ReactMarkdown>
                   </div>
 
