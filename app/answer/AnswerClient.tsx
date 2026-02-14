@@ -264,7 +264,9 @@ export default function AnswerPage() {
                   <div className="flex flex-col items-center">
                     <button
                       onClick={() => {
-                        navigator.clipboard.writeText(formattedAnswer);
+                        const url = window.location.href;
+                        navigator.clipboard.writeText(url);
+
                         setShowToast(true);
                         setTimeout(() => setShowToast(false), 1500);
                       }}
@@ -414,7 +416,7 @@ export default function AnswerPage() {
           shadow-lg
           animate-toast-in
         ">
-          Copied to clipboard ✅
+          Link copied 🔗
         </div>
       )}
 
