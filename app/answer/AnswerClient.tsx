@@ -27,6 +27,24 @@ export default function AnswerPage() {
   const hasFetchedRef = useRef(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [error, setError] = useState(false);
+  const handleShare = async () => {
+    const url = window.location.href;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Answerly",
+          url
+        });
+      } catch (err) {
+        console.log("Share cancelled");
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 1500);
+    }
+  };
   useEffect(() => {
     if (!question) return;
 
@@ -238,36 +256,59 @@ export default function AnswerPage() {
                   Network error, please try again.
                 </p>
               )}
-              {/* Fixed Copy Button */}
+              {/* Fixed Copy + Share Buttons */}
               {!loading && answerText && (
-                <div className="absolute bottom-66 right-17 md:bottom-118.5 md:right-25 flex flex-col items-center">
-                  <button
-                    onClick={() =>{
+                <div className="absolute bottom-66 right-17 md:bottom-118.5 md:right-25 flex flex-row items-center gap-3">
 
-
-                     navigator.clipboard.writeText(formattedAnswer)
-                      setShowToast(true);
-                      setTimeout(() => setShowToast(false), 1500);
-                    
-                    }}
-                    className="p-1 text-white hover:text-green-400 transition-colors"
-                    title="Copy to clipboard"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 md:h-5 w-4 md:w-5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
+                  {/* COPY */}
+                  <div className="flex flex-col items-center">
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(formattedAnswer);
+                        setShowToast(true);
+                        setTimeout(() => setShowToast(false), 1500);
+                      }}
+                      className="p-1 text-white hover:text-green-400 transition-colors"
+                      title="Copy"
                     >
-                      <rect x="5" y="5" width="14" height="18" rx="1" ry="1" fill="currentColor" fillOpacity="0.2" />
-                      <rect x="2" y="2" width="14" height="18" rx="1" ry="1" fill="none" />
-                    </svg>
-                  </button>
-                  <span className="text-white/30 text-[10px] md-[20px] select-none">
-                    Copy
-                  </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-3 md:h-5 w-4 md:w-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <rect x="5" y="5" width="14" height="18" rx="1" ry="1" fill="currentColor" fillOpacity="0.2" />
+                        <rect x="2" y="2" width="14" height="18" rx="1" ry="1" fill="none" />
+                      </svg>
+                    </button>
+                    <span className="text-white/30 text-[10px] select-none">Copy</span>
+                  </div>
+
+                  {/* SHARE */}
+                  <div className="flex flex-col items-center">
+                    <button
+                      onClick={handleShare}
+                      className="p-1 text-white hover:text-blue-400 transition-colors"
+                      title="Share"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-3 md:h-5 w-4 md:w-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/>
+                        <path d="M16 6l-4-4-4 4"/>
+                        <path d="M12 2v14"/>
+                      </svg>
+                    </button>
+                    <span className="text-white/30 text-[10px] select-none">Share</span>
+                  </div>
+
                 </div>
               )}
              
